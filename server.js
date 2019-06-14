@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 
-mongoose.connect('mongodb://localhost:27017/todo_backend',{useNewUrlParser: true}, (err)=>{
+mongoose.connect(process.env.MONGO_DB || 'mongodb://localhost:27017/todo_backend',{useNewUrlParser: true}, (err)=>{
     if(err)
         return console.log(err);
     console.log('Connected to mongodb!');
